@@ -4,6 +4,8 @@ SmartListing helps creating AJAX-enabled lists of ActiveRecord collections or ar
 
 [See it in action](http://showcase.sology.eu/smart_listing)
 
+Original smart_listing seems no longer maintained. We fork our own version (and hopefully make it better).
+
 ## Installation
 
 Add to your Gemfile:
