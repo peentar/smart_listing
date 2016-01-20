@@ -11,7 +11,9 @@ module SmartListing
         name = (args[0] || options[:name] || controller_name).to_sym
         collection = args[1] || options[:collection] || smart_listing_collection
 
-        options = {:config_profile => view_context.smart_listing_config_profile}.merge(options)
+        if (view_context.respond_to?(:smart_listing_config_profile))
+          options = {:config_profile => view_context.smart_listing_config_profile}.merge(options)
+        end
 
         list = SmartListing::Base.new(name, collection, options)
         list.setup(params, cookies)

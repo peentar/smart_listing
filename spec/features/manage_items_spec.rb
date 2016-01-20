@@ -39,8 +39,14 @@ feature "Manage items" do
     User.create(name: "Name 1", email: "Email 1")
 
     visit admin_users_path
+
+    expect(page).to have_content('Name 1')
+    expect(page).to_not have_content("Changed Name")
+
+    visit admin_users_path
     find('.change_name').click
 
-    expect(page).to_not have_content("Changed Name")
+    expect(page).to_not have_content("Name 1")
+    expect(page).to have_content("Changed Name")
   end
 end
